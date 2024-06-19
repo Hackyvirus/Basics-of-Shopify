@@ -245,3 +245,183 @@ To help identify theme editor actions like section and block selection or reorde
 You might also want to prevent specific code from running in the theme editor. To do so, you can use Liquid and JavaScript variables for detecting the theme editor.
 
     Section files must define presets in their schema to support being added to JSON templates using the theme editor. Section files without presets should be included in the JSON file manually, and can't be removed using the theme editor.
+
+## Support app blocks
+
+App blocks allow app developers to create blocks for merchants to add app content to their theme without having to directly edit theme code.
+
+
+
+## Section schema
+
+Sections support the {% schema %} Liquid tag. This tag allows you to define various attributes of a section, such as the section name, any section blocks, and settings to allow for theme editor customization options.
+
+## Schema
+
+Each section can have only a single {% schema %} tag, which must contain only valid JSON using the attributes listed in Content. The tag can be placed anywhere within the section file, but it can’t be nested inside another Liquid tag.
+
+The following is an example of a valid section schema.
+
+```javascript
+{% schema %}
+{
+  "name": "Slideshow",
+  "tag": "section",
+  "class": "slideshow",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Slideshow"
+    }
+  ],
+  "max_blocks": 5,
+  "blocks": [
+     {
+       "name": "Slide",
+       "type": "slide",
+       "settings": [
+         {
+           "type": "image_picker",
+           "id": "image",
+           "label": "Image"
+         }
+       ]
+     }
+  ],
+  "presets": [
+    {
+      "name": "Slideshow",
+      "settings": {
+        "title": "Slideshow"
+      },
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ],
+  "locales": {
+    "en": {
+      "title": "Slideshow"
+    },
+    "fr": {
+      "title": "Diaporama"
+    }
+  },
+  "enabled_on": {
+    "templates": ["*"],
+    "groups": ["footer"]
+  }
+}
+{% endschema %}
+```
+
+## name
+
+The name attribute determines the section title that is shown in the theme editor. For example, the following schema returns the following output:
+
+```bash
+{% schema %}
+{
+  "name": "Slideshow"
+}
+{% endschema %}
+```
+
+## tag
+
+By default, when Shopify renders a section, it’s wrapped in a <div> element with a unique id attribute:
+
+```bash
+<div id="shopify-section-[id]" class="shopify-section">
+
+  // Output of the section content
+
+</div>
+```
+
+If you don’t want to use a <div>, then you can specify which kind of HTML element to use with the tag attribute. The following are the accepted values:
+
+    1. `article`
+    2. `aside`
+    3. `div`
+    4. `footer`
+    5. `header`
+    6. `section`
+
+For example, the following schema returns the following output:
+```bash
+{% schema %}
+{
+  "name": "Slideshow",
+  "tag": "section"
+}
+{% endschema %}
+```
+
+## class
+
+When Shopify renders a section, it’s wrapped in an HTML element with a class of shopify-section. You can add to that class with the class attribute:
+
+```bash
+{% schema %}
+{
+  "name": "Slideshow",
+  "tag": "section",
+  "class": "slideshow"
+}
+{% endschema %}
+
+```
+Output: 
+```bash
+<section id="shopify-section-[id]" class="shopify-section slideshow">
+  // Output of the section content
+</section>
+```
+
+## limit
+
+By default, there's no limit to how many times a section can be added to a template or section group. You can specify a limit of 1 or 2 with the limit attribute:
+
+```bash
+{% schema %}
+{
+  "name": "Slideshow",
+  "tag": "section",
+  "class": "slideshow",
+  "limit": 1
+}
+{% endschema %}
+```
+
+## settings
+
+You can create section specific settings to allow merchants to customize the section with the settings object:
+
+```bash
+{% schema %}
+{
+  "name": "Slideshow",
+  "tag": "section",
+  "class": "slideshow",
+  "settings": [
+    {
+      "type": "text",
+      "id": "header",
+      "label": "Header"
+    }
+  ]
+}
+{% endschema %}
+```
+
+## blocks
+
+You can create blocks for a section. Blocks are reusable modules of content that can be added, removed, and reordered within a section.
