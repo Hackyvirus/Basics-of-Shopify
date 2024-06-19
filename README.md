@@ -16,8 +16,9 @@ To start developing theme for your cliets, you have to follow the steps with me
 
 By Signing up for Parter's programs you will get access to create stores and after that you will upload your products their and as well as you will get theme editor in your browser. You will get access to multiple themes at themes sections,you can choose what you want to use as your primary theme. You can upload your custom theme that you have developed.
 
-2. _Download Shopify theme kit_: [Click Here](https://shopify.dev/docs/storefronts/themes/tools/theme-kit/getting-started)
-   Shopify theme kit is CLI tool, that will help as develop our shopify theme in our local environment and connect with your exhisting store on shopify.
+2. **Download Shopify theme kit** : [Click Here](https://shopify.dev/docs/storefronts/themes/tools/theme-kit/getting-started)
+
+Shopify theme kit is CLI tool, that will help as develop our shopify theme in our local environment and connect with your exhisting store on shopify.
 
 use this command to install themekit on Windows:
 
@@ -32,10 +33,11 @@ brew tap shopify/shopify
 brew install themekit
 ```
 
-3. _Get the Theme Password_: [Click here](https://apps.shopify.com/theme-access?shpxid=31bbb0ee-12BF-4973-8340-3E480DB8A39E)
-   By using above link you will get access shopify's page where you have to add that into your shopify partener's account, you just have to click on left side, where you will see button to add that or you will see button get access. in this way you will get a password via your email. You have to copy that password, we will use that in next step.
+3. **Get the Theme Password**: [Click here](https://apps.shopify.com/theme-access?shpxid=31bbb0ee-12BF-4973-8340-3E480DB8A39E)
 
-4. _Create a theme_:
+By using above link you will get access shopify's page where you have to add that into your shopify partener's account, you just have to click on left side, where you will see button to add that or you will see button get access. in this way you will get a password via your email. You have to copy that password, we will use that in next step.
+
+4. **Create a theme**:
 
 ```bash
 theme new --password=[your-password] --store="[your-store.myshopify.com]" --name=[theme name]
@@ -48,7 +50,7 @@ Running the theme new command does the following:
 - Uploads the new files to your Shopify store
 - Creates or updates your config.yml file with the configuration for your new theme
 
-5. _Push updates to your theme_:
+5. **Push updates to your theme**:
 
 ```bash
 theme watch
