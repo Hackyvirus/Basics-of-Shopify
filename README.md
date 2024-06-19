@@ -194,3 +194,54 @@ Article comments can be accessed through the article object, and have a limit of
   {{ paginate | default_pagination }}
 {% endpaginate %}
 ```
+
+
+
+## Sections
+
+Sections are Liquid files that allow you to create reusable modules of content that can be customized by merchants. They can also include blocks which allow merchants to add, remove, and reorder content within a section.
+
+For example, you can create an Image with text section that displays an image and text side-by-side with options for merchants to choose the image, set the text, and select the display order.
+
+Sections can be dynamically added to pages using JSON templates or section groups, giving merchants flexibility to easily customize page layouts. Sections that are included in JSON templates or section groups can support app blocks, which give merchants the option to include app content within a section without having to edit theme code. JSON templates and section groups can render up to 25 sections, and each section can have up to 50 blocks.
+
+Sections can also be included statically, which can provide merchants with in-context customization options for static content.
+
+By default, sections are available for any template or section group. You can limit which templates and section groups have access in the section schema.
+
+## Render a section
+
+You can render sections in one of the following ways:
+
+    - Reference the section in a JSON template, or a section group in a layout file.
+    - Statically render the section with the section Liquid tag.
+    - Use the Section Rendering API.
+
+```bash
+If you want to render sections inside a template, then use a JSON template. JSON templates provide more extensive customization options for merchants, and improve the theme editor's performance.
+```
+
+## Statically render a section
+
+Whenever possible, you should avoid statically rendering sections. Instead, you should reference them in a JSON template or section group. Statically rendered sections can't be removed or reordered by merchants.
+
+You can statically render a section using the Liquid section tag.
+
+For example, to include a section in a Liquid template, you can include it with a section tag:
+
+```bash
+{% section 'featured-product' %}
+```
+     You can include a statically rendered section in multiple theme files. However, only one instance of the section exists. If you change section settings in one location, then the change will be applied to all locations where the section is rendered.
+
+## Integrate sections with the theme editor
+
+When users customize sections through the theme editor, the HTML of those sections is dynamically added, removed, or re-rendered directly onto the existing DOM, without reloading the entire page. However, any associated JavaScript that runs when the page loads won't run again.
+
+Additionally, you must make sure that when a section or block is selected, that section or block becomes, and remains, visible while it’s selected. For example, a slideshow section should scroll into view when the section is selected, slide to a selected block (slide), and pause while that block is selected.
+
+To help identify theme editor actions like section and block selection or reordering, you can use the JavaScript events emitted by the theme editor.
+
+You might also want to prevent specific code from running in the theme editor. To do so, you can use Liquid and JavaScript variables for detecting the theme editor.
+
+    Section files must define presets in their schema to support being added to JSON templates using the theme editor. Section files without presets should be included in the JSON file manually, and can't be removed using the theme editor.
