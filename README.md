@@ -158,6 +158,7 @@ The wrapper property makes it possible to insert HTML tags around all of the sec
         "main"
     ]
     }
+```
 
 ## Section data
 
