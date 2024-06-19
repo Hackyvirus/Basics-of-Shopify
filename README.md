@@ -146,6 +146,7 @@ The wrapper property makes it possible to insert HTML tags around all of the sec
 2. <main>
 3. <section>
 
+
     {
     "wrapper": "div#div_id.div_class[attribute-one=value]",
     "sections": {
