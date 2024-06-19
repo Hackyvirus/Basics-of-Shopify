@@ -173,3 +173,10 @@ You can add sections to a template in code, or through the theme editor. The sec
 ## article
 
 The article template renders the article page, which contains the full content of the article, as well as an optional comments section for customers. This template is used for items like individual posts in a blog.
+
+## Content
+
+You should include the following in your article template or a section inside of the template:
+
+    1. `The article object`
+    2. `The comment form`
