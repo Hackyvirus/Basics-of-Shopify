@@ -180,3 +180,17 @@ You should include the following in your article template or a section inside of
 
     1. `The article object`
     2. `The comment form`
+
+## Paginate article comments
+
+Article comments can be accessed through the article object, and have a limit of 50 per page. For this reason, you should paginate article comments to ensure that they’re all accessible:
+
+```bash
+{% paginate article.comments by 20 %}
+  {% for comment in article.comments %}
+    <!-- comment info -->
+  {% endfor %}
+
+  {{ paginate | default_pagination }}
+{% endpaginate %}
+```
