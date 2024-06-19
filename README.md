@@ -8,6 +8,51 @@ Shopify themes are built using Shopify's theme templating language, Liquid, alon
 
 As a developer, you can build a custom theme for a specific merchant, customize a theme to meet a merchant's needs, or build a theme to sell in the Shopify Theme Store. You can also build apps that extend the functionality of a theme.
 
+## Start Working Project
+
+To start developing theme for your cliets, you have to follow the steps with me
+
+1. _Register for Shopify Partner's Programm_: [Click Here](https://www.shopify.com/partners)
+   By Signing up for Parter's programs you will get access to create stores and after that you will upload your products their and as well as you will get theme editor in your browser. You will get access to multiple themes at themes sections,you can choose what you want to use as your primary theme. You can upload your custom theme that you have developed.
+
+2. _Download Shopify theme kit_: [Click Here](https://shopify.dev/docs/storefronts/themes/tools/theme-kit/getting-started)
+   Shopify theme kit is CLI tool, that will help as develop our shopify theme in our local environment and connect with your exhisting store on shopify.
+
+use this command to install themekit on Windows:
+
+```bash
+choco install themekit
+```
+
+Use this cammand to install themekit on MacOS:
+
+```bash
+brew tap shopify/shopify
+brew install themekit
+```
+
+3. _Get the Theme Password_: [Click here](https://apps.shopify.com/theme-access?shpxid=31bbb0ee-12BF-4973-8340-3E480DB8A39E)
+   By using above link you will get access shopify's page where you have to add that into your shopify partener's account, you just have to click on left side, where you will see button to add that or you will see button get access. in this way you will get a password via your email. You have to copy that password, we will use that in next step.
+
+4. _Create a theme_:
+
+```bash
+theme new --password=[your-password] --store="[your-store.myshopify.com]" --name=[theme name]
+```
+
+Running the theme new command does the following:
+
+- Generates a basic theme template locally
+- Creates a new theme in your Shopify store
+- Uploads the new files to your Shopify store
+- Creates or updates your config.yml file with the configuration for your new theme
+
+5. _Push updates to your theme_:
+
+```bash
+theme watch
+```
+
 ## Anatomy of a Shopify theme
 
 A theme controls the organization, features, and style of a merchant's online store. Theme code is organized with a standard directory structure of files specific to Shopify themes, as well as supporting assets such as images, stylesheets, and scripts.
@@ -195,8 +240,6 @@ Article comments can be accessed through the article object, and have a limit of
 {% endpaginate %}
 ```
 
-
-
 ## Sections
 
 Sections are Liquid files that allow you to create reusable modules of content that can be customized by merchants. They can also include blocks which allow merchants to add, remove, and reorder content within a section.
@@ -232,6 +275,7 @@ For example, to include a section in a Liquid template, you can include it with 
 ```bash
 {% section 'featured-product' %}
 ```
+
      You can include a statically rendered section in multiple theme files. However, only one instance of the section exists. If you change section settings in one location, then the change will be applied to all locations where the section is rendered.
 
 ## Integrate sections with the theme editor
@@ -249,8 +293,6 @@ You might also want to prevent specific code from running in the theme editor. T
 ## Support app blocks
 
 App blocks allow app developers to create blocks for merchants to add app content to their theme without having to directly edit theme code.
-
-
 
 ## Section schema
 
@@ -356,6 +398,7 @@ If you don’t want to use a <div>, then you can specify which kind of HTML elem
     6. `section`
 
 For example, the following schema returns the following output:
+
 ```bash
 {% schema %}
 {
@@ -379,7 +422,9 @@ When Shopify renders a section, it’s wrapped in an HTML element with a class o
 {% endschema %}
 
 ```
-Output: 
+
+Output:
+
 ```bash
 <section id="shopify-section-[id]" class="shopify-section slideshow">
   // Output of the section content
