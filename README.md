@@ -12,7 +12,7 @@ As a developer, you can build a custom theme for a specific merchant, customize 
 
 To start developing theme for your cliets, you have to follow the steps with me
 
-1. _Register for Shopify Partner's Programm_: [Click Here](https://www.shopify.com/partners)
+1. *Register for Shopify Partner's Programm*: [Click Here](https://www.shopify.com/partners)
    By Signing up for Parter's programs you will get access to create stores and after that you will upload your products their and as well as you will get theme editor in your browser. You will get access to multiple themes at themes sections,you can choose what you want to use as your primary theme. You can upload your custom theme that you have developed.
 
 2. _Download Shopify theme kit_: [Click Here](https://shopify.dev/docs/storefronts/themes/tools/theme-kit/getting-started)
