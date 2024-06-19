@@ -142,9 +142,9 @@ A template can only exist as a JSON or Liquid template, not both. For example, i
 
 The wrapper property makes it possible to insert HTML tags around all of the sections in a JSON template. You can use the following HTML tags:
 
-1. <div>
-2. <main>
-3. <section>
+1. `<div>`
+2. `<main>`
+3. `<section>`
 
 
     {
