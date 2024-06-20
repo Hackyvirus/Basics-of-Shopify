@@ -33,7 +33,7 @@ brew tap shopify/shopify
 brew install themekit
 ```
 
-3. **Get the Theme Password**: [Click here](https://apps.shopify.com/theme-access?shpxid=31bbb0ee-12BF-4973-8340-3E480DB8A39E)
+3. **Get the Theme Password**: [Click here](https://apps.shopify.com/theme-access)
 
 By using above link you will get access shopify's page where you have to add that into your shopify partener's account, you just have to click on left side, where you will see button to add that or you will see button get access. in this way you will get a password via your email. You have to copy that password, we will use that in next step.
 
