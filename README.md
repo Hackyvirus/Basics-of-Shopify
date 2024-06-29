@@ -1,5 +1,6 @@
 # Build Shopify themes
 
+
 Themes shape the online store experience for merchants and their customers. Build fast, flexible themes at scale using Liquid, Shopify's theme templating language, along with HTML, CSS, JavaScript, and JSON.
 
 A theme determines the way that a Shopify online store looks, feels, and functions for merchants and their customers.
